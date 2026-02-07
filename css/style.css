@@ -79,6 +79,13 @@ nav a:hover::after {
   width: 100%;
 }
 
+
+/* Desktop Navigation */
+.main-nav {
+  display: flex;
+  gap: 18px;
+}
+
 /* HERO */
 .hero {
   min-height: 50vh;
@@ -432,7 +439,7 @@ html {
       rgba(11, 60, 138, 0.75),
       rgba(11, 60, 138, 0.85)
     ),
-    url("../assets/vereinsheim.jpg");
+    url("../assets/Vereinsheim.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -763,11 +770,4 @@ nav a.active::after {
 /* Scroll-Anker nicht unter Header verschwinden lassen */
 section[id] {
   scroll-margin-top: 60px; /* Höhe deines Headers */
-}
-
-/* Desktop Navigation */
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 18px;
 }

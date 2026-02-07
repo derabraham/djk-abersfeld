@@ -424,3 +424,350 @@ html {
     left: -15px;
   }
 }
+
+.hero {
+  min-height: 50vh;
+  background:
+    linear-gradient(
+      rgba(11, 60, 138, 0.75),
+      rgba(11, 60, 138, 0.85)
+    ),
+    url("../assets/vereinsheim.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* ZELTPLATZ */
+.zeltplatz-hero {
+  margin-bottom: 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.zeltplatz-hero img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.zeltplatz-text {
+  max-width: 900px;
+}
+
+.zeltplatz-text p {
+  margin-bottom: 18px;
+}
+
+.zeltplatz-text ul {
+  margin: 20px 0 30px 25px;
+}
+
+.zeltplatz-text li {
+  margin-bottom: 10px;
+}
+
+.zeltplatz-text h3 {
+  margin: 35px 0 15px;
+  color: var(--blue);
+  font-size: 1.4rem;
+}
+
+.zeltplatz-text .highlight {
+  font-weight: 600;
+}
+
+/* FUSSBALL – MANNSCHAFT */
+.team-photo {
+  margin-bottom: 50px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.team-photo img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  object-position: center 38%;
+}
+
+/* Desktop */
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Handy */
+@media (max-width: 700px) {
+  .player-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+
+/* SPIELER KARTE */
+.player-card {
+  text-align: center;
+}
+
+.player-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;          /* 🔥 DAS ist der Schlüssel */
+  background: #e6e6e6;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  margin-bottom: 12px;
+}
+
+.player-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* 🔥 KEIN Abschneiden */
+  background: #e6e6e6;          /* graue Balken */
+}
+
+/* Platzhalter wenn kein Bild */
+.player-photo.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-photo.placeholder::after {
+  content: "Kein Foto";
+  color: #777;
+  font-weight: 600;
+}
+
+/* Name */
+.player-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .player-name {
+    font-size: clamp(0.8rem, 3vw, 0.95rem); /* Dynamische Größe */
+    margin-bottom: 2px;
+  }
+  
+  .player-role {
+    font-size: 0.7rem;
+    color: #666; /* Etwas dezenter */
+  }
+}
+
+
+
+/* Mobile */
+@media (max-width: 900px) {
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--blue-dark);
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .main-nav a {
+    margin: 10px 0;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  /* Dropdown im Mobile immer sichtbar */
+  .nav-dropdown:hover .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .dropdown-menu a {
+    color: white;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 30vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 50px 0;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .container {
+    width: 92%;
+  }
+}
+
+.main-nav a {
+  display: block;
+  padding: 14px 0;
+  line-height: 0.4;
+}
+
+.nav-dropdown > a {
+  padding: 14px 0;
+}
+
+/* ===== BURGER ICON (Morph to X) ===== */
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+.burger span {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 3px;
+  background: white;
+  border-radius: 999px;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.burger span:nth-child(1) { top: 14px; }
+.burger span:nth-child(2) { top: 21px; }
+.burger span:nth-child(3) { top: 28px; }
+
+.burger.open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+
+@media (max-width: 900px) {
+  .burger { display: block; }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: var(--blue-dark);
+    display: flex;               /* wichtig: nicht none */
+    flex-direction: column;
+    padding: 0 20px;
+
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: max-height 0.28s ease, opacity 0.22s ease, transform 0.28s ease, padding 0.28s ease;
+  }
+
+  .main-nav.open {
+    max-height: 80vh;            /* genug für alle Links */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px;
+  }
+
+  .main-nav a {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.25s ease;
+  }
+
+  .dropdown-menu a {
+    color: white;
+    padding: 10px 0 10px 14px;
+  }
+
+  .dropdown-menu.open {
+    max-height: 400px; /* reicht für deine Einträge */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+/* Hover bleibt für Desktop */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* NEU: aktiv per Klasse */
+nav a.active::after {
+  width: 100%;
+}
+
+/* Scroll-Anker nicht unter Header verschwinden lassen */
+section[id] {
+  scroll-margin-top: 60px; /* Höhe deines Headers */
+}
+
+/* Desktop Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}

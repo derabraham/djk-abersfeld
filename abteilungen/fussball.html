@@ -80,90 +80,15 @@
             </div>
             <a class="button-link bfv-external-link" href="https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJNMRO000008VS5489BUVVJB7B47-G/tabellen" target="_blank" rel="noopener">Beim BFV öffnen</a>
           </div>
-
-          <div class="bfv-widget-responsive" id="bfv-widget-frame">
-            <div id="bfv-abersfeld-table" class="bfv-widget-loading">Laden...</div>
-          </div>
-
-          <noscript>
-            <div class="bfv-fallback-box">
-              <strong>Aktuelle Tabelle</strong>
-              <span>Die Tabelle kann ohne JavaScript nicht direkt geladen werden.</span>
-              <a class="button-link" href="https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJNMRO000008VS5489BUVVJB7B47-G/tabellen" target="_blank" rel="noopener">Tabelle beim BFV öffnen</a>
+          <div class="bfv-table-header">
+            <div>
+              <h3>2. Mannschaft – AK-Gr 3 SW</h3>
             </div>
-          </noscript>
+            <a class="button-link bfv-external-link" href="https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJOG24000006VS5489BUVVJB7B47-G/tabellen" target="_blank" rel="noopener">Beim BFV öffnen</a>
+          </div>
         </div>
 
-        <script>
-          (function () {
-            var bfvUrl = 'https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJNMRO000008VS5489BUVVJB7B47-G/tabellen';
-            var localHosts = ['localhost', '127.0.0.1', '0.0.0.0'];
-
-            function showBfvFallback(message) {
-              var frame = document.getElementById('bfv-widget-frame');
-              if (!frame) return;
-
-              frame.classList.add('is-fallback');
-              frame.innerHTML = ''
-                + '<div class="bfv-fallback-box">'
-                + '<strong>Aktuelle BFV-Tabelle</strong>'
-                + '<span>' + message + '</span>'
-                + '<a class="button-link" href="' + bfvUrl + '" target="_blank" rel="noopener">Tabelle beim BFV öffnen</a>'
-                + '</div>';
-            }
-
-            function renderBfvTable() {
-              var target = document.getElementById('bfv-abersfeld-table');
-              if (!target) return;
-
-              var host = window.location.hostname;
-              var isLocalPreview = !host || localHosts.indexOf(host) !== -1;
-
-              // Das BFV-Widget ist an registrierte Webseiten-Domains gebunden.
-              // Lokal über 127.0.0.1/localhost wird es deshalb nicht angezeigt.
-              if (isLocalPreview) {
-                showBfvFallback('');
-                return;
-              }
-
-              if (!window.BFVWidget || !BFVWidget.HTML5 || !BFVWidget.HTML5.zeigeWettbewerb) {
-                showBfvFallback('Die Tabelle konnte gerade nicht automatisch geladen werden.');
-                return;
-              }
-
-              var tabs = BFVWidget.HTML5.wettbewerbTabs || {};
-              var selectedTableTab = tabs.tabellen || tabs.tabelle || tabs.gesamt || tabs.ergebnisse;
-
-              BFVWidget.HTML5.zeigeWettbewerb(
-                '02TBEJNMRO000008VS5489BUVVJB7B47-G',
-                'bfv-abersfeld-table',
-                {
-                  height: '760',
-                  width: '100%',
-                  selectedTab: selectedTableTab,
-                  colorResults: 'rgb(11,60,138)',
-                  colorNav: 'rgb(255,255,255)',
-                  colorClubName: 'rgb(11,60,138)',
-                  backgroundNav: 'rgb(11,60,138)'
-                }
-              );
-
-              window.setTimeout(function () {
-                var frame = document.getElementById('bfv-widget-frame');
-                var txt = frame ? frame.textContent || '' : '';
-                if (/nicht registriert/i.test(txt)) {
-                  showBfvFallback('Die automatische Einbindung ist für diese Webseite noch nicht freigeschaltet.');
-                }
-              }, 1200);
-            }
-
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', renderBfvTable);
-            } else {
-              renderBfvTable();
-            }
-          })();
-        </script>
+        
       </div>
     </section>
 

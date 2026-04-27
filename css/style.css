@@ -738,7 +738,7 @@ html {
   }
 
   .dropdown-menu.open {
-    max-height: 400px; /* reicht für deine Einträge */
+    max-height: 620px; /* reicht für alle Einträge */
     opacity: 1;
     transform: translateY(0);
   }
@@ -790,4 +790,385 @@ section[id] {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+/* ===== Feedback-Erweiterungen ===== */
+.featured-document,
+.content-card,
+.newsfeed {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+  padding: 28px;
+  margin-bottom: 35px;
+}
+
+.featured-document {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(300px, 1.2fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.eyebrow {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+}
+
+.featured-document h3,
+.newsfeed h3 {
+  color: var(--blue-dark);
+  font-size: 1.45rem;
+  margin-bottom: 12px;
+}
+
+.button-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: white !important;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(11,60,138,0.25);
+}
+
+.button-link:hover { background: var(--blue-dark); }
+
+.document-frame-wrap {
+  min-height: 520px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #e9eef7;
+}
+
+.document-frame,
+.calendar-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: 0;
+  display: block;
+}
+
+.section-headline-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.hint {
+  max-width: 420px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.newsfeed-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.news-card {
+  border: 1px solid #e5eaf2;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  padding: 18px;
+  background: #fbfcff;
+}
+
+.news-card time {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.news-card h4 {
+  margin: 8px 0;
+  color: var(--blue-dark);
+}
+
+.news-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.calendar-placeholder {
+  margin-top: 18px;
+  min-height: 220px;
+  border: 2px dashed #b9c7de;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #4d5b70;
+  background: #f8fbff;
+}
+
+.department-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: -20px 0 34px;
+}
+
+.department-tabs a {
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+.subsection-block {
+  scroll-margin-top: 80px;
+  margin-bottom: 36px;
+}
+
+.age-grid,
+.schedule-list {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.age-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+.age-grid div,
+.schedule-list div {
+  background: #f3f5f8;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.age-grid strong,
+.schedule-list strong,
+.age-grid span,
+.schedule-list span { display: block; }
+
+.age-grid span,
+.schedule-list span {
+  color: #555;
+  margin-top: 4px;
+}
+
+.contact-line {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e5eaf2;
+}
+
+@media (max-width: 800px) {
+  .featured-document { grid-template-columns: 1fr; }
+  .document-frame-wrap,
+  .document-frame,
+  .calendar-frame { min-height: 420px; }
+  .section-headline-row { flex-direction: column; }
+}
+
+/* ===== Feinschliff Navigation & öffentliche Inhalte ===== */
+.main-nav {
+  align-items: center;
+}
+
+.main-nav a,
+.nav-dropdown > a {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown > a {
+  margin-left: 18px;
+}
+
+.dropdown-menu a {
+  display: block;
+  min-height: auto;
+  padding: 12px 18px;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.section-headline-row {
+  align-items: center;
+}
+
+.calendar-card > p {
+  margin-bottom: 18px;
+}
+
+.calendar-placeholder {
+  min-height: 260px;
+  border: 1px solid #dce5f2;
+  border-left: 5px solid var(--blue);
+  border-radius: 16px;
+  padding: 0;
+  display: block;
+  color: #4d5b70;
+  background: #f8fbff;
+  overflow: hidden;
+}
+
+.calendar-empty-state {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 28px;
+}
+
+.calendar-empty-state strong {
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+}
+
+.calendar-empty-state span {
+  max-width: 560px;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    align-items: stretch;
+  }
+
+  .main-nav a,
+  .nav-dropdown > a {
+    min-height: 34px;
+    padding: 6px 0;
+  }
+
+  .nav-dropdown {
+    display: block;
+  }
+
+  .nav-dropdown > a {
+    margin-left: 0;
+  }
+
+  .dropdown-menu a {
+    min-height: auto;
+    padding: 6px 0 6px 18px;
+  }
+}
+
+/* ===== BFV-Tabelle ===== */
+.bfv-table-card {
+  margin-top: 26px;
+  border: 1px solid #e5eaf2;
+  border-radius: 18px;
+  background: #fbfcff;
+  overflow: hidden;
+}
+
+.bfv-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 22px 8px;
+}
+
+.bfv-table-header h3 {
+  color: var(--blue-dark);
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.bfv-external-link {
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.bfv-widget-responsive {
+  width: 100%;
+  min-height: 760px;
+  padding: 12px 16px 18px;
+  overflow-x: auto;
+}
+
+.bfv-widget-loading,
+.bfv-noscript {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #4d5b70;
+  background: white;
+  border: 1px dashed #b9c7de;
+  border-radius: 14px;
+  padding: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .bfv-table-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bfv-external-link {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .bfv-widget-responsive {
+    min-height: 680px;
+    padding: 10px;
+  }
+}
+
+/* BFV-Fallback, wenn das offizielle Widget lokal oder ohne freigeschaltete Domain nicht laden darf */
+.bfv-widget-responsive.is-fallback {
+  min-height: 0;
+  padding: 16px;
+}
+
+.bfv-fallback-box {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: #4d5b70;
+  background: white;
+  border: 1px solid #dce5f2;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.bfv-fallback-box strong {
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+}
+
+.bfv-fallback-box span {
+  max-width: 620px;
 }

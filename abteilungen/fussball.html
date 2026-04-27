@@ -5,6 +5,7 @@
   <title>Fußball – DJK Abersfeld</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
+  <script type="text/javascript" src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs"></script>
 </head>
 <body>
 
@@ -25,7 +26,6 @@
 <nav class="main-nav">
   <a href="../index.html">Start</a>
   <a href="../index.html#aktuell">DJK aktuell</a>
-  <a href="../index.html#chronik">Chronik</a>
 
   <div class="nav-dropdown">
     <a>Abteilungen ▾</a>
@@ -33,6 +33,8 @@
       <a href="../abteilungen/fussball.html">Fußball</a>
       <a href="../abteilungen/korbball.html">Korbball</a>
       <a href="../abteilungen/gymnastik.html">Gymnastik</a>
+      <a href="../abteilungen/kinderturnen.html">Kinderturnen</a>
+      <a href="../abteilungen/zumba.html">Zumba</a>
       <a href="../abteilungen/schach.html">Schach</a>
       <a href="../abteilungen/theater.html">Theater</a>
       <a href="../abteilungen/fasching.html">Fasching</a>
@@ -58,6 +60,129 @@
       <img src="../assets/fussball/fussball-mannschaft.JPG"
            alt="Fußballmannschaft DJK Abersfeld">
     </div>
+
+
+    <div class="department-tabs">
+      <a href="#herren">Fußball – Herren</a>
+      <a href="#jugend">Fußball – Jugend</a>
+    </div>
+
+    <section id="herren" class="subsection-block">
+      <h2>Fußball – Herren</h2>
+      <div class="content-card">
+        <p>Die Herrenmannschaften der DJK Abersfeld nehmen am Spielbetrieb des BFV teil.</p>
+
+        <div class="bfv-table-card">
+          <div class="bfv-table-header">
+            <div>
+              <p class="eyebrow">BFV-Tabelle</p>
+              <h3>1. Mannschaft – KK-Gr 3 SW</h3>
+            </div>
+            <a class="button-link bfv-external-link" href="https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJNMRO000008VS5489BUVVJB7B47-G/tabellen" target="_blank" rel="noopener">Beim BFV öffnen</a>
+          </div>
+
+          <div class="bfv-widget-responsive" id="bfv-widget-frame">
+            <div id="bfv-abersfeld-table" class="bfv-widget-loading">Laden...</div>
+          </div>
+
+          <noscript>
+            <div class="bfv-fallback-box">
+              <strong>Aktuelle Tabelle</strong>
+              <span>Die Tabelle kann ohne JavaScript nicht direkt geladen werden.</span>
+              <a class="button-link" href="https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJNMRO000008VS5489BUVVJB7B47-G/tabellen" target="_blank" rel="noopener">Tabelle beim BFV öffnen</a>
+            </div>
+          </noscript>
+        </div>
+
+        <script>
+          (function () {
+            var bfvUrl = 'https://www.bfv.de/ergebnisse/wettbewerb/-/02TBEJNMRO000008VS5489BUVVJB7B47-G/tabellen';
+            var localHosts = ['localhost', '127.0.0.1', '0.0.0.0'];
+
+            function showBfvFallback(message) {
+              var frame = document.getElementById('bfv-widget-frame');
+              if (!frame) return;
+
+              frame.classList.add('is-fallback');
+              frame.innerHTML = ''
+                + '<div class="bfv-fallback-box">'
+                + '<strong>Aktuelle BFV-Tabelle</strong>'
+                + '<span>' + message + '</span>'
+                + '<a class="button-link" href="' + bfvUrl + '" target="_blank" rel="noopener">Tabelle beim BFV öffnen</a>'
+                + '</div>';
+            }
+
+            function renderBfvTable() {
+              var target = document.getElementById('bfv-abersfeld-table');
+              if (!target) return;
+
+              var host = window.location.hostname;
+              var isLocalPreview = !host || localHosts.indexOf(host) !== -1;
+
+              // Das BFV-Widget ist an registrierte Webseiten-Domains gebunden.
+              // Lokal über 127.0.0.1/localhost wird es deshalb nicht angezeigt.
+              if (isLocalPreview) {
+                showBfvFallback('');
+                return;
+              }
+
+              if (!window.BFVWidget || !BFVWidget.HTML5 || !BFVWidget.HTML5.zeigeWettbewerb) {
+                showBfvFallback('Die Tabelle konnte gerade nicht automatisch geladen werden.');
+                return;
+              }
+
+              var tabs = BFVWidget.HTML5.wettbewerbTabs || {};
+              var selectedTableTab = tabs.tabellen || tabs.tabelle || tabs.gesamt || tabs.ergebnisse;
+
+              BFVWidget.HTML5.zeigeWettbewerb(
+                '02TBEJNMRO000008VS5489BUVVJB7B47-G',
+                'bfv-abersfeld-table',
+                {
+                  height: '760',
+                  width: '100%',
+                  selectedTab: selectedTableTab,
+                  colorResults: 'rgb(11,60,138)',
+                  colorNav: 'rgb(255,255,255)',
+                  colorClubName: 'rgb(11,60,138)',
+                  backgroundNav: 'rgb(11,60,138)'
+                }
+              );
+
+              window.setTimeout(function () {
+                var frame = document.getElementById('bfv-widget-frame');
+                var txt = frame ? frame.textContent || '' : '';
+                if (/nicht registriert/i.test(txt)) {
+                  showBfvFallback('Die automatische Einbindung ist für diese Webseite noch nicht freigeschaltet.');
+                }
+              }, 1200);
+            }
+
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', renderBfvTable);
+            } else {
+              renderBfvTable();
+            }
+          })();
+        </script>
+      </div>
+    </section>
+
+    <section id="jugend" class="subsection-block">
+      <h2>Fußball – Jugend</h2>
+      <div class="content-card">
+        <p>Die Fußball-Jugend spielt in einer Spielgemeinschaft mit den Vereinen der Großgemeinde Schonungen. Die DJK Abersfeld stellt Spieler aller Altersklassen.</p>
+        <p>Im Spieljahr <strong>2025 / 2026</strong> sind die Altersklassen auf folgende Trainings- bzw. Spielorte verteilt:</p>
+        <div class="age-grid">
+          <div><strong>U 19</strong><span>Schonungen</span></div>
+          <div><strong>U 15</strong><span>Forst</span></div>
+          <div><strong>U 13</strong><span>Forst</span></div>
+          <div><strong>U 11</strong><span>Löffelsterz</span></div>
+          <div><strong>U 9</strong><span>Schonungen</span></div>
+        </div>
+        <p>Für Kinder im Kindergartenalter wird ein Balltraining im Sommer am Sportplatz Abersfeld und im Winter in der Halle Löffelsterz angeboten.</p>
+        <p class="contact-line"><strong>Ansprechpartner und Übungsleiter:</strong> Simon Kober</p>
+      </div>
+    </section>
 
     <!-- FUNKTIONÄRE -->
 <h2>Funktionäre</h2>
